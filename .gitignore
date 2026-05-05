@@ -1,0 +1,23 @@
+# Environment variables (CRITICAL: Never push API keys)
+.env
+
+# Python Virtual Environment
+smai_env/
+venv/
+env/
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Generated Vector Database / Embeddings
+data/faiss.index
+data/metadata.pkl
+data/chunks.json
+
+# (Optional) If you want to ignore PDFs, uncomment the next line
+# data/pdfs/*.pdf
+
+# Streamlit config (optional)
+.streamlit/
