@@ -12,9 +12,10 @@ __pycache__/
 *.pyc
 
 # Generated Vector Database / Embeddings
-data/faiss.index
-data/metadata.pkl
-data/chunks.json
+# (Commented out for Streamlit Cloud deployment - we want to push these!)
+# data/faiss.index
+# data/metadata.pkl
+# data/chunks.json
 
 # (Optional) If you want to ignore PDFs, uncomment the next line
 # data/pdfs/*.pdf
