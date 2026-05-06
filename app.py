@@ -79,12 +79,13 @@ def init_rag():
 
     INDEX_FILE  = Path("data/faiss.index")
     META_FILE   = Path("data/metadata.pkl")
+    BM25_FILE   = Path("data/bm25.pkl")
     CHUNKS_FILE = Path("data/chunks.json")
 
     model = load_model()
 
-    if INDEX_FILE.exists() and META_FILE.exists():
-        index, meta = load_index()
+    if INDEX_FILE.exists() and META_FILE.exists() and BM25_FILE.exists():
+        index, bm25, meta = load_index()
     else:
         # Try to read existing chunks; rebuild if missing or corrupt
         chunks = None
@@ -100,11 +101,11 @@ def init_rag():
             chunks = build_chunks()
 
         embeddings = embed_chunks(model, chunks)
-        index = build_index(embeddings)
-        save_index(index, chunks)
+        index, bm25 = build_index(embeddings, chunks)
+        save_index(index, bm25, chunks)
         meta = chunks
 
-    return model, index, meta
+    return model, index, bm25, meta
 
 
 
@@ -154,7 +155,7 @@ st.markdown("""
 
 # Load RAG components
 try:
-    model, index, meta = init_rag()
+    model, index, bm25, meta = init_rag()
     rag_ready = True
 except Exception as e:
     st.error(f"Failed to initialise RAG: {e}")
@@ -200,7 +201,7 @@ if user_input and rag_ready:
             from src.embeddings import search
             from src.rag_pipeline import answer_query, format_citations
 
-            retrieved = search(user_input, model, index, meta, top_k=top_k)
+            retrieved = search(user_input, model, index, bm25, meta, top_k=top_k)
             answer, src_chunks = answer_query(user_input, retrieved, hindi=hindi_mode)
             citations = format_citations(src_chunks)
 

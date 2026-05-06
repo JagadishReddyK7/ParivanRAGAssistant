@@ -26,7 +26,6 @@ If the context doesn't contain the answer, say "I don't have enough information.
 
 Rules:
 - Be concise and step-by-step where applicable.
-- Always cite your sources at the end in the format: [SOURCE - page X]
 - Do NOT hallucinate fees, URLs, or form numbers not present in the context.
 {hindi_instruction}
 """

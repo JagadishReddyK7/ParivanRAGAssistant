@@ -22,3 +22,4 @@ __pycache__/
 
 # Streamlit config (optional)
 .streamlit/
+viva_prep.md
