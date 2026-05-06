@@ -128,7 +128,6 @@ with st.sidebar:
     st.markdown("### 💡 Sample Questions")
     sample_qs = [
         "How do I apply for a Driving Licence?",
-        "Documents needed for RC registration?",
         "How to transfer vehicle ownership?",
         "What is the fee for a learner's licence?",
         "How to apply for IDP (International Driving Permit)?",

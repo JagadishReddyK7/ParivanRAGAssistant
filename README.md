@@ -63,5 +63,4 @@ Here is a brief overview of what each file in the repository does:
 - **`src/embeddings.py`**: The core search engine. Embeds text using SentenceTransformers, builds the FAISS vector database, builds the BM25 keyword index, and performs Reciprocal Rank Fusion (RRF) search.
 - **`src/rag_pipeline.py`**: Handles prompt engineering and LLM API calls. Formats the retrieved context and sends it to either Gemini or Groq via direct REST API calls.
 - **`run.bat` / `run.sh`**: Helper scripts to automate the installation and execution of the entire pipeline.
-- **`.env.example`**: A template for API keys to keep secrets secure.
-- **`viva_prep.md`**: A detailed study guide documenting the architectural decisions and ML concepts for project evaluations.
+
